@@ -5,7 +5,6 @@
    <!--- Basic Page Needs
    ================================================== -->
    <meta charset="<?php bloginfo('charset'); ?>">
-	<title>Wordpress website</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 

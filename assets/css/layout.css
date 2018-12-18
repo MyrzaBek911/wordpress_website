@@ -78,19 +78,25 @@ img { border-radius: 3px; }
 }
 #sidebar .widget { margin-bottom: 24px; }
 
+
+#sidebar li.current-cat a{
+   color: red;
+}
+
+
 /* Link list */
-#sidebar .link-list {
+ .widget_categories {
    margin: 12px 0 18px 0;
    padding: 0;
 }
-#sidebar .link-list li {
+ .widget_categories li {
    line-height: 24px;
 }
-#sidebar .link-list li a {
+ .widget_categories li a {
    border: none;
-   color: #838C95;
+   color: #838C95 ;
 }
-#sidebar .link-list li a:hover {
+ .widget_categories li a:hover {
    color: #313131;
 }
 
@@ -747,45 +753,6 @@ ul#nav ul li a {
 	font-family: 'notosans-bold', sans-serif; 
 	color: #DDD9D9;
 }
-
-/* ------------------------------------------------------------------ */
-/* h. Tweets Section - Main Page
-/* ------------------------------------------------------------------ */
-
-#tweets {
-   background: #f5f5f5 url(../images/tweets-bg.jpg);
-   padding-top: 60px;
-   padding-bottom: 30px;
-   border-top: 1px solid #E3E8E8;
-   border-bottom: 1px solid #C1CDCD;
-}
-.tweeter-icon { font-size: 54px; }
-
-/* Twitter Feed */
-#tweets #twitter {
-   margin: 24px auto;
-   padding: 0;
-   width: 90%;
-}
-#tweets #twitter li {
-   margin: 6px 0px 18px 0;
-   line-height: 24px;
-}
-#tweets #twitter li span {
-   display: block;
-   font: 24px/48px raleway-semibold, Sans-serif;
-   margin-bottom: 12px;
-   color: #99A0A8;
-}
-#tweets #twitter li b a {
-   font: 18px/36px notosans-regular, Sans-serif;
-   color: #A4ABB2;
-   border: none;
-}
-#tweets .button {
-   padding: 6px 24px;
-}
-
 /* ------------------------------------------------------------------ */
 /* i. Blog
 /* ------------------------------------------------------------------ */
