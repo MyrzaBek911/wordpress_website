@@ -29,7 +29,6 @@
 
             <div class="logo">
                <a href="<?php bloginfo('url')   ?>">
-                  <img alt="" src="images/logo.png">
                 <div><?php bloginfo('name') ?></div>
                </a>
             </div>

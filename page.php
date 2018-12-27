@@ -1,161 +1,47 @@
-<?php get_header() ?>
+<?php 
+get_header(); ?>
 
-   <!-- Page Title
-   ================================================== -->
-   <div id="page-title">
+   <section id="primary" class="content-area">
+      <main id="main" class="site-main" role="main">
 
-      <div class="row">
+      <?php if ( have_posts() ) : ?>
 
-         <div class="ten columns centered text-center">
-            <h1>Our Blog<span>.</span></h1>
+         <header class="page-header">
+            <?php
+               the_archive_title( '<h1 class="page-title">', '</h1>' );
+               the_archive_description( '<div class="taxonomy-description">', '</div>' );
+            ?>
+         </header><!-- .page-header -->
 
-            <p>Aenean condimentum, lacus sit amet luctus lobortis, dolores et quas molestias excepturi
-            enim tellus ultrices elit, amet consequat enim elit noneas sit amet luctu. </p>
-         </div>
+         <?php
+         // Start the Loop.
+         while ( have_posts() ) : the_post();
 
-      </div>
+            /*
+             * Include the Post-Format-specific template for the content.
+             * If you want to override this in a child theme, then include a file
+             * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+             */
+            get_template_part( 'content', get_post_format() );
 
-   </div> <!-- Page Title End-->
+         // End the loop.
+         endwhile;
 
-   <!-- Content
-   ================================================== -->
-   <div class="content-outer">
+         // Previous/next page navigation.
+         the_posts_pagination( array(
+            'prev_text'          => __( 'Previous page', 'twentyfifteen' ),
+            'next_text'          => __( 'Next page', 'twentyfifteen' ),
+            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>',
+         ) );
 
-      <div id="page-content" class="row">
+      // If no content, include the "No posts found" template.
+      else :
+         get_template_part( 'content', 'none' );
 
-         <div id="primary" class="eight columns">
+      endif;
+      ?>
 
-            <article class="post">
+      </main><!-- .site-main -->
+   </section><!-- .content-area -->
 
-               <div class="entry-header cf">
-
-                  <h1><a href="single.html" title="">Proin gravida nibh vel velit auctor aliquet Aenean sollicitudin auctor.</a></h1>
-
-                  <p class="post-meta">
-
-                     <time class="date" datetime="2014-01-14T11:24">Dec 21, 2018</time>
-                     /
-                     <span class="categories">
-                     <a href="#">Lorem ipsum.</a> /
-                     <a href="#">Lorem ipsum.</a> /
-                     <a href="#">Lorem ipsum.</a>
-                     </span>
-
-                  </p>
-
-               </div>
-
-               <div class="post-thumb">
-                  <a href="single.html" title=""><img src="images/post-image/post-image-1300x500-01.jpg" alt="post-image" title="post-image"></a>
-               </div>
-
-               <div class="post-content">
-
-                  <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
-                  nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-                  cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a
-                  ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. </p>
-
-               </div>
-
-            </article> <!-- post end -->
-
-            <article class="post">
-
-               <div class="entry-header cf">
-
-                  <h1><a href="single.html" title="">Proin gravida nibh vel velit auctor aliquet Aenean sollicitudin auctor.</a></h1>
-
-                  <p class="post-meta">
-
-                     <time class="date" datetime="2014-01-14T11:24">Dec 21, 2018</time>
-                     /
-                     <span class="categories">
-                     <a href="#">Lorem ipsum.</a> /
-                     <a href="#">Lorem ipsum.</a> /
-                     <a href="#">Lorem ipsum.</a>
-                     </span>
-
-                  </p>
-
-               </div>
-
-               <div class="post-thumb">
-                  <a href="single.html" title=""><img src="images/post-image/post-image-1300x500-02.jpg" alt="post-image" title="post-image"></a>
-               </div>
-
-               <div class="post-content">
-
-                  <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
-                  nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-                  cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a
-                  ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. </p>
-
-               </div>
-
-            </article> <!-- post end -->
-
-            <article class="post">
-
-               <div class="entry-header cf">
-
-                  <h1><a href="single.html" title="">Proin gravida nibh vel velit auctor aliquet Aenean sollicitudin auctor.</a></h1>
-
-                  <p class="post-meta">
-
-                     <time class="date" datetime="2014-01-14T11:24">Dec 21, 2018</time>
-                     /
-                     <span class="categories">
-                     <a href="#">Lorem ipsum.</a> /
-                     <a href="#">Lorem ipsum.</a> /
-                     <a href="#">Lorem ipsum.</a>
-                     </span>
-
-                  </p>
-
-               </div>
-
-               <div class="post-thumb">
-                  <a href="single.html" title=""><img src="images/post-image/post-image-1300x500-03.jpg" alt="post-image" title="post-image"></a>
-               </div>
-
-               <div class="post-content">
-
-                  <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
-                  nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-                  cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a
-                  ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. </p>
-
-               </div>
-
-            </article> <!-- post end -->
-
-            <!-- Pagination -->
-            <nav class="col full pagination">
-  			      <ul>
-                  <li><span class="page-numbers prev inactive">Prev</span></li>
-  				      <li><span class="page-numbers current">1</span></li>
-  				      <li><a href="#" class="page-numbers">2</a></li>
-                  <li><a href="#" class="page-numbers">3</a></li>
-                  <li><a href="#" class="page-numbers">4</a></li>
-                  <li><a href="#" class="page-numbers">5</a></li>
-                  <li><a href="#" class="page-numbers">6</a></li>
-                  <li><a href="#" class="page-numbers">7</a></li>
-                  <li><a href="#" class="page-numbers">8</a></li>
-                  <li><a href="#" class="page-numbers">9</a></li>
-  				      <li><a href="#" class="page-numbers next">Next</a></li>
-  			      </ul>
-  		      </nav>
-
-         </div> <!-- Primary End-->
-
-         <div id="secondary" class="four columns end">
-
-          <?php get_sidebar() ?>
-
-         </div> <!-- Secondary End-->
-
-      </div>
-
-   </div> <!-- Content End-->
-  <?php get_footer() ?>
+<?php get_footer(); ?>
